@@ -36,6 +36,14 @@ def box_to_row(cells)
 end.flatten
 end
 
+post '/' do
+	cells = box_to_row(params['cell'])
+	# puts cells.inspect
+	session[:current_solution] = cells.map {|value| value.to_i}.join
+	# puts session[:current_solution].inspect
+	session[:check_solution] = true
+	redirect to('/')
+end
 
 get '/' do 
 	sudoku = random_sudoku
