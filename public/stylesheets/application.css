@@ -6,23 +6,25 @@
 	text-align: center;
 }
 
+.box {
+	display: inline-block;
+	outline: 3px;
+	outline-style: solid;	
+}
 
 .cell {
 	display: inline-block;
+	text-align: center
 }
-
-.box {
-	display: inline-block;
-	outline: 10px;
-}
-
 
 .cell input {
-	width: 30px;
-	height: 30px;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	font-size: 18px;
+	font-family: Comic Sans MS;
+	font-style: bold;
 }
-
-
 
 .h1{
 	font-family: fantasy;
