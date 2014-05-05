@@ -1,6 +1,21 @@
-.box, .cell {
+
+
+
+#sudoku {
+	font-size: 0px;
+	text-align: center;
+}
+
+
+.cell {
 	display: inline-block;
 }
+
+.box {
+	display: inline-block;
+	outline: 10px;
+}
+
 
 .cell input {
 	width: 30px;
@@ -8,7 +23,9 @@
 }
 
 
-#sudoku {
-	font-size: 0px;
+
+.h1{
+	font-family: fantasy;
 	text-align: center;
-}*/
+	margin-top: 30px
+}
