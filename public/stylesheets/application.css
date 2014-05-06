@@ -6,11 +6,19 @@
 	text-align: center;
 }
 
+#flash {
+	text-align: center;	
+	font-family: fantasy;
+	margin-bottom: 20px;
+}
+
 .box {
 	display: inline-block;
 	outline: 3px;
 	outline-style: solid;	
 }
+
+
 
 .cell {
 	display: inline-block;
