@@ -98,5 +98,9 @@ helpers do
 		end
 	end
 
+	def cell_value(value)
+		value.to_i == 0 ? "" : value
+	end
+
 end
 
