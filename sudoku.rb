@@ -1,7 +1,12 @@
 require 'sinatra'
 require_relative './lib/sudoku'
 require_relative './lib/cell'
-	
+require_relative './helpers/application'	
+require 'sinatra/partial' 
+
+set :partial_template_engine, :erb
+
+
 enable :sessions
 
 def random_sudoku
@@ -50,13 +55,6 @@ get '/' do
 	@current_solution = session[:current_solution] || session[:puzzle]
 	@solution = session[:solution]
 	@puzzle = session[:puzzle]
-	
-	puts @solution.inspect
-  puts @puzzle.inspect
-  puts @current_solution.inspect
-  puts @current_solution[1]
-  
-  
 	erb :index
 end
 
@@ -75,32 +73,16 @@ def prepare_to_check_solution
 	session[:check_solution] = nil
 end
 
+def read_only(cell_value)
+	cell_value.to_i != 0 ? "read_only" : "" 
+end
+
 get '/solution' do
 	@current_solution = session[:solution]
 	erb :index
 end
 
 
-helpers do 
 
-	def colour_class(solution_to_check,puzzle_value,current_solution_value,solution_value)
-		must_be_guessed = puzzle_value == "0"
-		tried_to_guess = current_solution_value.to_i != 0
-		guessed_incorrectly = current_solution_value != solution_value
 
-		if 	solution_to_check &&
-				must_be_guessed &&
-				tried_to_guess &&
-				guessed_incorrectly
-				'incorrect'
-		elsif !must_be_guessed
-				'value_provided'
-		end
-	end
-
-	def cell_value(value)
-		value.to_i == 0 ? "" : value
-	end
-
-end
 
