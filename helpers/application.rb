@@ -1,3 +1,4 @@
+
 helpers do 
 
 	def colour_class(solution_to_check,puzzle_value,current_solution_value,solution_value)
