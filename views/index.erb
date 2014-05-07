@@ -11,6 +11,14 @@
 		<h1 class="h1"> There is always time for one more game of Sudoku</h1>
 		<div id="flash"> <%= flash[:notice] %> </div>
 
+		<div>
+		<form action="/new game" method="post">
+			<button class="easy" type = "submit" name="level" value="Easy">Easy</button>
+			<button class="medium" type = "submit" name="level" value="Medium">Medium</button>
+			<button class="difficult" type = "submit" name="level" value="Hard">Hard</button>
+		</form>
+		</div>
+ 
 		<div id="sudoku">
 		<form action="/" method="post">
 			<% 3.times do |row| %>
@@ -21,10 +29,8 @@
 								<div class="cell-row">				
 									<% 3.times do |cell| %>
 									
-
 											<%= partial :cell, :locals => {:cell_index => row * 27 + box * 3 + cell_row * 9 + cell} %>
 
-									
 									<% end %>			
 								</div>			
 							<% end %>				
@@ -32,7 +38,7 @@
 					<% end %>
 				</div>	
 			<% end %>	
-		<button>Check solution</button>	
+		<button class = "button">Check solution</button>	
 		</form>
 		</div>
 

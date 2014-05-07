@@ -23,7 +23,7 @@ def rand_select(cells_to_blank, array, max=7)
   end
 end
 
-def puzzle(sudoku,difficulty=4)
+def puzzle(sudoku,difficulty)
   boxes = box_to_row(sudoku).each_slice(9).map{|box| rand_select(difficulty, box)}.flatten
   rows = box_to_row(boxes)
 end
@@ -41,7 +41,7 @@ def generate_new_puzzle_if_necessary
   return if session[:current_solution]
   sudoku = random_sudoku
   session[:solution] = sudoku
-  session[:puzzle] = puzzle(sudoku)
+  session[:puzzle] = puzzle(sudoku, session[:cells_to_delete])
   session[:current_solution] = session[:puzzle]
 end
 
